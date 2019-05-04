@@ -8,8 +8,8 @@ abstract class Controller
     /** @var Twig */
     protected $view;
 
-    public function __construct(ContainerInterface $container)
+    public function __construct(\Slim\Views\Twig $view)
     {
-        $this->view = $container->get('view');
+        $this->view = $view;
     }
 }
