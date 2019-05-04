@@ -3,8 +3,11 @@ namespace App\Model;
 
 class Hello implements HelloInterface
 {
-    public function withName(string $name): string
+    public function withName(string $name): array
     {
-        return "Hello, $name";
+        return [
+            "en" => "Hello, $name",
+            "ja" => "こんにちは, $name"
+        ];
     }
 }
