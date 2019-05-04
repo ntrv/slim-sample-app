@@ -27,7 +27,7 @@ class HelloController extends BaseController
         $this->view = $this->container->get('view');
     }
 
-    public function html(Request $request, Response $response, array $args): Response
+    public function withHtml(Request $request, Response $response, array $args): Response
     {
         $hello = new Hello;
         $name = $args['name'];
@@ -37,7 +37,7 @@ class HelloController extends BaseController
         ]);
     }
 
-    public function plain(Request $request, Response $response, array $args): Response
+    public function withJson(Request $request, Response $response, array $args): Response
     {
         $hello = new Hello;
         $name = $args['name'];
