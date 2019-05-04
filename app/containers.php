@@ -6,7 +6,7 @@ $container = $app->getContainer();
 
 $container['view'] = function (ContainerInterface $container) use ($configs) {
     /** @var array */
-    $config = $configs['view'];
+    $config = $configs['settings']['view'];
 
     $view = new \Slim\Views\Twig($config['template_path'], $config['twig']);
     return $view;
