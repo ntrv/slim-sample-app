@@ -5,9 +5,6 @@ use \Psr\Container\ContainerInterface;
 
 use Sample\Model\Hello;
 
-/** @var array */
-$configs = require __DIR__ . '/configs.php';
-
 /** @var ContainerInterface */
 $container = $app->getContainer();
 
