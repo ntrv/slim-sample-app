@@ -32,6 +32,8 @@ class HelloController extends BaseController
         $hello = new Hello;
         $name = $args['name'];
 
+        $this->logger->debug(json_encode($request));
+
         return $this->view->render($response, 'sample/hello.twig', [
             'message' => $hello->withName($name)
         ]);
