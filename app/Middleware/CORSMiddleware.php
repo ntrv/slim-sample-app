@@ -10,10 +10,10 @@ class CORSMiddleware
     protected $origin;
 
     /** @var array */
-    const ALLOW_METHODS = ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'];
+    private const ALLOW_METHODS = ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'];
 
     /** @var array */
-    const ALLOW_HEADERS = ['X-Requested-With', 'Content-Type', 'Accept', 'Origin', 'Authorization'];
+    private const ALLOW_HEADERS = ['X-Requested-With', 'Content-Type', 'Accept', 'Origin', 'Authorization'];
 
     public function __construct(string $origin = null)
     {
