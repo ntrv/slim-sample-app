@@ -1,5 +1,5 @@
 <?php
-namespace Sample\Model;
+namespace App\Model;
 
 interface HelloInterface
 {

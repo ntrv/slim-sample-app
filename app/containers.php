@@ -1,9 +1,7 @@
 <?php
-namespace Sample;
-
 use \Psr\Container\ContainerInterface;
 
-use Sample\Model\Hello;
+use App\Model\Hello;
 
 /** @var ContainerInterface */
 $container = $app->getContainer();

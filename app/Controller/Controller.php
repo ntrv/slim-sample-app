@@ -1,5 +1,5 @@
 <?php
-namespace Sample\Controller;
+namespace App\Controller;
 
 use \Psr\Container\ContainerInterface;
 

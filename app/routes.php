@@ -1,6 +1,4 @@
 <?php
-namespace Sample;
-
-use Sample\Controller\HelloController;
+use App\Controller\HelloController;
 
 $app->get('/hello/{name}', HelloController::class . ':index');

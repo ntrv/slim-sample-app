@@ -1,6 +1,4 @@
 <?php
-namespace Sample;
-
 return [
     'view' => [
         'template_path' => __DIR__ . '/View',
