@@ -4,6 +4,11 @@ use \Psr\Container\ContainerInterface;
 /** @var ContainerInterface */
 $container = $app->getContainer();
 
+// Custom Error Handler
+$container['errorHandler'] = function (ContainerInterface $c) {
+    return new App\Exceptions\ErrorHandler($c->get('settings')['displayErrorDetails']);
+};
+
 // App Service Providers
 $container->register(new App\Services\Sample\HelloServiceProvider());
 
