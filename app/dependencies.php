@@ -11,8 +11,3 @@ $container['view'] = function (ContainerInterface $container) use ($configs) {
     $view = new \Slim\Views\Twig($config['template_path'], $config['twig']);
     return $view;
 };
-
-$container[App\Controller\HelloController::class] = function (ContainerInterface $c) {
-    $view = $c->get('view');
-    return new \App\Controller\HelloController($view);
-};

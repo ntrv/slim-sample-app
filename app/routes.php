@@ -1,5 +1,5 @@
 <?php
-use App\Controller\HelloController;
+use App\Controller\Sample\HelloController;
 use App\Middleware\CORSMiddleware;
 
 
