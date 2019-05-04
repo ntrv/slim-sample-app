@@ -4,6 +4,10 @@ use \Psr\Container\ContainerInterface;
 /** @var ContainerInterface */
 $container = $app->getContainer();
 
+// App Service Providers
+$container->register(new App\Services\Sample\HelloServiceProvider());
+
+// View Renderer
 $container['view'] = function (ContainerInterface $container) use ($configs) {
     /** @var array */
     $config = $configs['settings']['view'];
@@ -12,7 +16,8 @@ $container['view'] = function (ContainerInterface $container) use ($configs) {
     return $view;
 };
 
-$container['logger'] = function (ContainerInterface $c) use ($configs) {
+// Logger
+$container['logger'] = function (ContainerInterface $c) {
     $setting = $c->get('settings')['logger'];
     $logger = new Monolog\Logger($setting['name']);
     $logger->pushProcessor(new Monolog\Processor\UidProcessor());
