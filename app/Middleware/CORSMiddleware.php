@@ -9,6 +9,12 @@ class CORSMiddleware
     /** @var string */
     protected $origin;
 
+    /** @var array */
+    const ALLOW_METHODS = ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'];
+
+    /** @var array */
+    const ALLOW_HEADERS = ['X-Requested-With', 'Content-Type', 'Accept', 'Origin', 'Authorization'];
+
     public function __construct(string $origin = null)
     {
         $this->origin = $origin;
@@ -21,8 +27,8 @@ class CORSMiddleware
         if (isset($this->origin)) {
             return $response
                 ->withHeader('Access-Control-Allow-Origin', $this->origin)
-                ->withHeader('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, Accept, Origin, Authorization')
-                ->withHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+                ->withHeader('Access-Control-Allow-Headers', implode(',', self::ALLOW_HEADERS))
+                ->withHeader('Access-Control-Allow-Methods', implode(',', self::ALLOW_METHODS));
         }
         return $response;
     }
