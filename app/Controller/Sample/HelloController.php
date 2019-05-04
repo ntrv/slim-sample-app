@@ -27,20 +27,21 @@ class HelloController extends BaseController
         $this->view = $this->container->get('view');
     }
 
-    public function index(Request $request, Response $response, array $args): Response
+    public function html(Request $request, Response $response, array $args): Response
     {
         $hello = new Hello;
         $name = $args['name'];
-        return $this->view->render($response, 'hello.twig', [
+
+        return $this->view->render($response, 'sample/hello.twig', [
             'message' => $hello->withName($name)
         ]);
     }
 
-    public function text(Request $request, Response $response, array $args): Response
+    public function plain(Request $request, Response $response, array $args): Response
     {
         $hello = new Hello;
         $name = $args['name'];
-        $response->getBody()->write($hello->withName($name) . "\n");
-        return $response;
+
+        return $response->withJSON($hello->withName($name));
     }
 }
