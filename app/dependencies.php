@@ -13,9 +13,9 @@ $container['errorHandler'] = function (ContainerInterface $c) {
 $container->register(new App\Services\Sample\HelloServiceProvider());
 
 // View Renderer
-$container['view'] = function (ContainerInterface $container) use ($configs) {
+$container['view'] = function (ContainerInterface $c) {
     /** @var array */
-    $config = $configs['settings']['view'];
+    $config = $c->get('settings')['view'];
 
     $view = new \Slim\Views\Twig($config['template_path'], $config['twig']);
     return $view;
