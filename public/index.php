@@ -5,6 +5,8 @@ require __DIR__ . '/../vendor/autoload.php';
 $configs = require __DIR__ . '/../app/configs.php';
 $app = new \Slim\App($configs);
 
+session_start();
+
 // Create DI Container
 require __DIR__ . '/../app/dependencies.php';
 
