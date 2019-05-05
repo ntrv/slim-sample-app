@@ -24,5 +24,31 @@ return [
         'cors' => [
             'origin' => getenv('APP_URL') ?: 'www.example.com',
         ],
+
+        // Database Settings
+        'db' => [
+            'use' => getenv('APP_ENV') === 'production' ? 'mysql' : 'sqlite',
+            'mysql' => [
+                'write' => [
+                    'host' => ['localhost'],
+                ],
+                'read' => [
+                    'host' => ['localhost'],
+                ],
+                'sticky' => true,
+                'driver' => 'mysql',
+                'host' => 'localhost',
+                'database' => 'DB',
+                'username' => 'root',
+                'password' => 'pass',
+                'charset' => 'utf8',
+                'collation' => 'utf8_unicode_ci',
+                'prefix'    => '',
+            ],
+            'sqlite' => [
+                'driver' => 'sqlite',
+                'database' => __DIR__ . '/../app.db'
+            ],
+        ],
     ],
 ];
