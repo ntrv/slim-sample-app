@@ -21,11 +21,9 @@ class Routes
     public function __invoke()
     {
         $this->app->group('/api', function (\Slim\App $app) {
-            //
+            $app->get('/hello/{name}', HelloController::class . ':withJson');
         })->add(new CORSMiddleware($this->configs['cors']['origin']));
 
         $this->app->get('/hello/{name}', HelloController::class . ':withHtml');
-        $this->app->get('/hello/{name}/json', HelloController::class . ':withJson')
-            ->add(new CORSMiddleware($this->configs['cors']['origin']));
     }
 }
