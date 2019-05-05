@@ -8,10 +8,10 @@ $app = new \Slim\App($configs);
 session_start();
 
 // Create DI Container
-require __DIR__ . '/../app/dependencies.php';
+(new App\Dependencies($app))();
 
 // Register routes
-require __DIR__ . '/../app/routes.php';
+(new App\Routes($app))();
 
 // Run app
 $app->run();

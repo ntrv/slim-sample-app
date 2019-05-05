@@ -1,10 +1,26 @@
 <?php
+namespace App;
+
 use App\Controller\Sample\HelloController;
 use App\Middleware\CORSMiddleware;
 
-$app->group('/api', function (\Slim\App $app) {
-    //
-})->add(new CORSMiddleware('www.google.com'));
+class Routes
+{
+    /** @var \Slim\App */
+    private $app;
 
-$app->get('/hello/{name}', HelloController::class . ':withHtml');
-$app->get('/hello/{name}/json', HelloController::class . ':withJson');
+    public function __construct(\Slim\App $app)
+    {
+        $this->app = $app;
+    }
+
+    public function __invoke()
+    {
+        $this->app->group('/api', function (\Slim\App $app) {
+            //
+        })->add(new CORSMiddleware('www.google.com'));
+
+        $this->app->get('/hello/{name}', HelloController::class . ':withHtml');
+        $this->app->get('/hello/{name}/json', HelloController::class . ':withJson');
+    }
+}
