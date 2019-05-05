@@ -20,19 +20,19 @@ class Dependencies
 
     public function __invoke()
     {
-        // App Service Providers
+        // Application Service Providers
         $this->registerServiceProviders([
-            new ErrorHandlerServiceProvider(),
-            new HelloServiceProvider(),
-            new LoggerServiceProvider(),
-            new TwigServiceProvider(),
+            ErrorHandlerServiceProvider::class,
+            HelloServiceProvider::class,
+            LoggerServiceProvider::class,
+            TwigServiceProvider::class,
         ]);
     }
 
     private function registerServiceProviders(array $providers)
     {
         foreach ($providers as $provider) {
-            $this->container->register($provider);
+            $this->container->register(new $provider());
         }
     }
 }
