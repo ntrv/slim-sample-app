@@ -38,7 +38,8 @@ class Dependencies
         $this->container['logger'] = function (ContainerInterface $c) {
             $setting = $c->get('settings')['logger'];
             $logger = new \Monolog\Logger($setting['name']);
-            $logger->pushProcessor(new \Monolog\Processor\UidProcessor());
+            $logger->pushProcessor(new \Monolog\Processor\WebProcessor());
+            $logger->pushProcessor(new \Monolog\Processor\IntrospectionProcessor());
             $logger->pushHandler(new \Monolog\Handler\StreamHandler($setting['path'], $setting['level']));
             return $logger;
         };
