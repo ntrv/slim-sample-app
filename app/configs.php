@@ -49,7 +49,7 @@ return [
             ],
             'sqlite' => [
                 'driver'   => 'sqlite',
-                'database' => __DIR__ . '/../app.sqlite',
+                'database' => __DIR__ . '/../database/app.sqlite',
                 'prefix'   => '',
             ],
         ],
