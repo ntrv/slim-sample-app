@@ -18,14 +18,36 @@ class Dependencies
     public function __invoke()
     {
         // Custom Error Handler
+        $this->registerCustomErrorHandler();
+
+        // App Service Providers
+        $this->registerServiceProviders([
+            new HelloServiceProvider(),
+        ]);
+
+        // View Renderer
+        $this->registerTwig();
+
+        // Logger
+        $this->registerLogger();
+    }
+
+    private function registerCustomErrorHandler()
+    {
         $this->container['errorHandler'] = function (ContainerInterface $c) {
             return new App\Exceptions\ErrorHandler($c->get('settings')['displayErrorDetails']);
         };
+    }
 
-        // App Service Providers
-        $this->container->register(new HelloServiceProvider());
+    private function registerServiceProviders(array $providers)
+    {
+        foreach ($providers as $provider) {
+            $this->container->register($provider);
+        }
+    }
 
-        // View Renderer
+    private function registerTwig()
+    {
         $this->container['view'] = function (ContainerInterface $c) {
             /** @var array */
             $config = $c->get('settings')['view'];
@@ -33,8 +55,10 @@ class Dependencies
             $view = new \Slim\Views\Twig($config['template_path'], $config['twig']);
             return $view;
         };
+    }
 
-        // Logger
+    private function registerLogger()
+    {
         $this->container['logger'] = function (ContainerInterface $c) {
             $setting = $c->get('settings')['logger'];
             $logger = new \Monolog\Logger($setting['name']);
