@@ -15,7 +15,7 @@ return [
 
         // Monolog Settings
         'logger' => [
-            'name' => getenv('APP_NAME') ?: 'sample',
+            'name'  => getenv('APP_NAME') ?: 'sample',
             'path'  => isset($_ENV['docker']) ? 'php://stdout' : __DIR__ . '/../logs/app.log',
             'level' => \Monolog\Logger::DEBUG,
         ],
@@ -35,19 +35,19 @@ return [
                 'read' => [
                     'host' => ['localhost'],
                 ],
-                'sticky' => true,
-                'driver' => 'mysql',
-                'host' => 'localhost',
-                'database' => 'DB',
-                'username' => 'root',
-                'password' => 'pass',
-                'charset' => 'utf8',
+                'sticky'    => true,
+                'driver'    => 'mysql',
+                'host'      => 'localhost',
+                'database'  => 'DB',
+                'username'  => 'root',
+                'password'  => 'pass',
+                'charset'   => 'utf8',
                 'collation' => 'utf8_unicode_ci',
                 'prefix'    => '',
             ],
             'sqlite' => [
-                'driver' => 'sqlite',
-                'database' => __DIR__ . '/../app.db'
+                'driver'   => 'sqlite',
+                'database' => __DIR__ . '/../app.sqlite'
             ],
         ],
     ],
