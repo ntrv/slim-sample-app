@@ -6,12 +6,14 @@ use Pimple\ServiceProviderInterface;
 
 use \Psr\Container\ContainerInterface;
 
+use App\Exceptions\ErrorHandler;
+
 class ErrorHandlerServiceProvider implements ServiceProviderInterface
 {
     public function register(Container $container)
     {
         $container['errorHandler'] = function (ContainerInterface $c) {
-            return new App\Exceptions\ErrorHandler($c->get('settings')['displayErrorDetails']);
+            return new ErrorHandler($c->get('settings')['displayErrorDetails']);
         };
     }
 }
