@@ -14,4 +14,4 @@ composer.phar
 /logs/*
 !/logs/.gitkeep
 
-/database/app.db
+/database/app.sqlite
