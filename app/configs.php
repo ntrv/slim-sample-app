@@ -3,7 +3,7 @@ return [
     'settings' => [
         // Slim Settings
         'determineRouteBeforeAppMiddleware' => false,
-        'displayErrorDetails' => true,
+        'displayErrorDetails' => getenv('APP_ENV') === 'production' ? false : true,
 
         // Renderer Settings
         'view' => [
