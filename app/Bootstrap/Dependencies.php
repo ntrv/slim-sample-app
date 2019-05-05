@@ -7,6 +7,7 @@ use App\Services\Sample\HelloServiceProvider;
 use App\Services\LoggerServiceProvider;
 use App\Services\TwigServiceProvider;
 use App\Services\ErrorHandlerServiceProvider;
+use App\Services\Database\EloquentServiceProvider;
 
 class Dependencies
 {
@@ -26,6 +27,7 @@ class Dependencies
             HelloServiceProvider::class,
             LoggerServiceProvider::class,
             TwigServiceProvider::class,
+            EloquentServiceProvider::class,
         ]);
     }
 
