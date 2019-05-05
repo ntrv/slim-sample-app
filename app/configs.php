@@ -9,7 +9,7 @@ return [
         'view' => [
             'template_path' => __DIR__ . '/../resources/views',
             'twig' => [
-                // 'cache' => __DIR__ . '/../cache/view'
+                'cache' => getenv('APP_ENV') === 'production' ? __DIR__ . '/../cache/view' : false,
             ],
         ],
 
@@ -22,7 +22,7 @@ return [
 
         // Cross Origin Sharing Settings
         'cors' => [
-            'origin' => 'www.example.com',
+            'origin' => getenv('APP_URL') ?: 'www.example.com',
         ],
     ],
 ];
