@@ -23,6 +23,8 @@ class EloquentServiceProvider implements ServiceProviderInterface
 
             // Setup the Eloquent ORM... (optional; unless you've used setEventDispatcher())
             $capsule->bootEloquent();
+
+            return $capsule;
         };
     }
 }
