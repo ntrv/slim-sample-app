@@ -1,5 +1,5 @@
 <?php
-namespace App;
+namespace App\Bootstrap;
 
 use \Psr\Container\ContainerInterface;
 

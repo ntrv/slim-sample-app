@@ -1,5 +1,5 @@
 <?php
-namespace App;
+namespace App\Bootstrap;
 
 use App\Controller\Sample\HelloController;
 use App\Middleware\CORSMiddleware;
