@@ -10,7 +10,7 @@ class TwigServiceProvider implements ServiceProviderInterface
 {
     public function register(Container $container)
     {
-        $container['view'] = function (ContainerInterface $c) {
+        $container[self::class] = function (ContainerInterface $c) {
             /** @var array */
             $config = $c->get('settings')['view'];
 

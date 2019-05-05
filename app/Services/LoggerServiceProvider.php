@@ -10,7 +10,7 @@ class LoggerServiceProvider implements ServiceProviderInterface
 {
     public function register(Container $container)
     {
-        $container['logger'] = function (ContainerInterface $c) {
+        $container[self::class] = function (ContainerInterface $c) {
             $setting = $c->get('settings')['logger'];
             $logger = new \Monolog\Logger($setting['name']);
             $logger->pushProcessor(new \Monolog\Processor\WebProcessor());
