@@ -12,6 +12,6 @@ abstract class HtmlController extends BaseController
     public function __construct(ContainerInterface $c)
     {
         parent::__construct($c);
-        $this->view = $this->container->get('view');
+        $this->view = $c->get('view');
     }
 }
