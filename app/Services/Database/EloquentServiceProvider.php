@@ -16,7 +16,7 @@ class EloquentServiceProvider implements ServiceProviderInterface
             $config = $c->get('settings')['db'];
 
             $capsule = new Capsule;
-            $capsule->addConnection($config[$config['use']]);
+            $capsule->addConnection($config[$config['use']]); // connection name is default
 
             // Make this Capsule instance available globally via static methods... (optional)
             $capsule->setAsGlobal();
